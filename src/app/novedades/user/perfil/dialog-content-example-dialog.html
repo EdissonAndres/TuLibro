@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Cambio de contraseña</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Querido usuario enviaremos un mensaje a su correo electronico<br>para que pueda cambiar su contraseña.</p>
+  <h3>¿Desea Continuar?</h3>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Aceptar</button>
+</mat-dialog-actions>

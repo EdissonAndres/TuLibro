@@ -1,0 +1,93 @@
+<h1 mat-dialog-title>Agregar Tarjeta</h1>
+<div mat-dialog-content>
+    <p>Por favor ingrese a continuacion los datos de su tarjeta</p>
+    <form class="register__container--form" [formGroup]="form">
+        <mat-form-field class="input">
+            <mat-label>Tipo</mat-label>
+            <mat-select [formControl]="tipoFormControl" name="Tipo">
+              <mat-option *ngFor="let tipo of tipos" [value]="tipo.value">
+                {{tipo.viewValue}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="tipoFormControl.hasError('required')">
+              Este campo es necesario
+            </mat-error>
+          </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>Numero</mat-label>
+            <input type="text" matInput [formControl]="numeroFormControl">
+            <mat-error *ngIf="numeroFormControl.hasError('maxlength') && !numeroFormControl.hasError('pattern') && !numeroFormControl.hasError('required')">
+            Este campo solo admite maximo 18 digitos 
+            </mat-error>
+            <mat-error *ngIf="numeroFormControl.hasError('pattern') && !numeroFormControl.hasError('required')">
+            Este campo solo admite digitos numericos
+            </mat-error>
+            <mat-error *ngIf="numeroFormControl.hasError('required')">
+            Este campo es necesario
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field >
+            <mat-label>Fecha de caducidad</mat-label>
+            <input matInput [matDatepicker]="dp" [formControl]="fechaFormControl">
+            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+            <mat-datepicker #dp
+                            startView="multi-year"
+                            (yearSelected)="chosenYearHandler($event)"
+                            (monthSelected)="chosenMonthHandler($event, dp)"
+                            panelClass="example-month-picker">
+            </mat-datepicker>
+            <mat-error *ngIf="fechaFormControl.hasError('required')">
+                Este campo es necesario
+            </mat-error>
+          </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>Nombres Titular</mat-label>
+            <input type="text" matInput [formControl]="nombreFormControl">
+            <mat-error *ngIf="nombreFormControl.hasError('pattern') && !nombreFormControl.hasError('maxlength') && !nombreFormControl.hasError('required')">
+            Este campo solo admite caracteres alfabeticos o espacios simples
+            </mat-error>
+            <mat-error *ngIf="nombreFormControl.hasError('maxlength') && !nombreFormControl.hasError('required')">
+            Este campo solo admite maximo 25 caracteres
+            </mat-error>
+            <mat-error *ngIf="nombreFormControl.hasError('required')">
+            Este campo es necesario
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>CC Titular</mat-label>
+            <input type="text" matInput [formControl]="ccFormControl">
+            <mat-error *ngIf="ccFormControl.hasError('maxlength') && !ccFormControl.hasError('pattern') && !ccFormControl.hasError('required')">
+            Este campo solo admite maximo 15 digitos 
+            </mat-error>
+            <mat-error *ngIf="ccFormControl.hasError('pattern') && !ccFormControl.hasError('required')">
+            Este campo solo admite digitos numericos
+            </mat-error>
+            <mat-error *ngIf="ccFormControl.hasError('required')">
+            Este campo es necesario
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>CVV</mat-label>
+            <input type="text" matInput [formControl]="cvvFormControl">
+            <mat-error *ngIf="cvvFormControl.hasError('maxlength') && !cvvFormControl.hasError('pattern') && !cvvFormControl.hasError('required')">
+            Este campo solo admite maximo 4 digitos 
+            </mat-error>
+            <mat-error *ngIf="cvvFormControl.hasError('pattern') && !cvvFormControl.hasError('required')">
+            Este campo solo admite digitos numericos
+            </mat-error>
+            <mat-error *ngIf="cvvFormControl.hasError('required')">
+            Este campo es necesario
+            </mat-error>
+        </mat-form-field>
+
+    </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [disabled]="form.invalid" [mat-dialog-close]="form.value" cdkFocusInitial>Agregar</button>
+</div>

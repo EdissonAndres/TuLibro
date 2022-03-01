@@ -1,0 +1,33 @@
+<section class="pagos">
+    <h2>Mis metodos de pago</h2>
+    <div>
+        <button (click)="agregarTarjeta()" class="button" mat-button>
+            <mat-icon>add</mat-icon>
+            <span>Agregar Tarjeta</span>
+        </button>
+    </div>
+    <section class="tarjetas_contenedor">
+        <div class="tarjeta" *ngFor="let tarjeta of tarjetas">
+            <div>
+                <img class="imagen" *ngIf="tarjeta.tipo === 'MasterCard'" src="../../../../../assets/mastercard.png" alt="mastercard">
+                <img class="imagen" *ngIf="tarjeta.tipo === 'Visa'" src="../../../../../assets/visa.png" alt="visa">
+                <img class="imagen" *ngIf="tarjeta.tipo === 'AmericanExpress'" src="../../../../../assets/american.png" alt="american express">
+                <div>
+                    <p>Numero: {{tarjeta.numero}}</p>
+                    <p>Fecha de caducidad: {{tarjeta.fechaCaducidad}}</p>
+                </div>
+            </div>
+            <div>
+                <!-- Esto es un comentario
+                <button (click)="modificarTarjeta(tarjeta.numero)" class="button2" mat-button>
+                    <mat-icon>edit</mat-icon>
+                    <span>Modificar</span>
+                </button> -->
+                <button (click)="eliminarTarjeta(tarjeta.numero)" class="button2" mat-button>
+                    <mat-icon>delete</mat-icon>
+                    <span>Eliminar</span>
+                </button>
+            </div>
+        </div>
+    </section>
+</section>

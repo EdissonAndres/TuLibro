@@ -1,0 +1,21 @@
+<header class="header">
+    <img class="header__img" src="./../../../assets/TU LIBRO1.png" alt="tu libro">
+    <input class="search" type="text" placeholder="Buscar...">
+    <a routerLink="/novedades/usuario">Inicio</a>
+    <a >Mis Compras</a>
+    <a >Mis Reservas</a>
+    <button class="header__button" mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>person</mat-icon>
+        <span>{{User?.usuario | slice:0:10}}</span>
+    </button>
+    <mat-menu #menu="matMenu" xPosition="before">
+        <button (click)="logOut()" mat-menu-item>
+            <mat-icon>logout</mat-icon>
+            <span>Cerrar Sesion</span>
+        </button>
+        <button routerLink="/novedades/usuario/perfil" mat-menu-item>
+            <mat-icon>manage_accounts</mat-icon>
+            <span>Gestionar Perfil</span>
+        </button>
+    </mat-menu>
+</header>

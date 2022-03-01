@@ -1,0 +1,54 @@
+<app-header-user></app-header-user>
+<section class="novedades">
+    <app-banner></app-banner>
+    <section class="carousel">
+      <h2 class="categories__title">Agregados Recientemente</h2>
+      <div class="carousel__container">
+        <div *ngFor="let book of booksList" class="carousel-item">
+          <img class="carousel-item__img" src={{book.image}} alt={{book.titulo}}  />
+          <div class="carousel-item__details">
+            <p class="carousel-item__details--title">{{book.titulo | slice:0:26}}</p>
+            <p class="carousel-item__details--subtitle">{{book.autor}}</p>
+            <p class="carousel-item__details--subtitle">{{book.precio | currency }}</p>
+            <div class="carousel-item__details--buttons">
+              <button mat-button>
+                <mat-icon>event</mat-icon>
+                <span>Reservar</span>
+              </button>
+              <button mat-button>
+                <mat-icon>add_shopping_cart</mat-icon>
+                <span>Añadir</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section *ngFor="let a of User?.preferencias" class="carousel">
+      <h2 class="categories__title">{{a}}</h2>
+      <div class="carousel__container">
+        <ng-container *ngFor="let book of booksList">
+          <div *ngIf="book.genero === a" class="carousel-item">
+            <img class="carousel-item__img" src={{book.image}} alt={{book.titulo}}  />
+            <div class="carousel-item__details">
+              <p class="carousel-item__details--title">{{book.titulo | slice:0:26}}</p>
+              <p class="carousel-item__details--subtitle">{{book.autor}}</p>
+              <p class="carousel-item__details--subtitle">{{book.precio | currency }}</p>
+              <div class="carousel-item__details--buttons">
+                <button mat-button>
+                  <mat-icon>event</mat-icon>
+                  <span>Reservar</span>
+                </button>
+                <button mat-button>
+                  <mat-icon>add_shopping_cart</mat-icon>
+                  <span>Añadir</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </section>
+  </section>
+
+<app-footer></app-footer>

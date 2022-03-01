@@ -1,0 +1,141 @@
+<section class="register__container">
+    <h2>Mis Datos</h2>
+    <section>
+        <form class="register__container--form" [formGroup]="form">
+        <mat-form-field class="input">
+            <mat-label>DNI</mat-label>
+            <input type="text" matInput [formControl]="idFormControl">
+            <mat-error *ngIf="idFormControl.hasError('maxlength') && !idFormControl.hasError('pattern') && !idFormControl.hasError('required')">
+            Este campo solo admite maximo 15 digitos 
+            </mat-error>
+            <mat-error *ngIf="idFormControl.hasError('pattern') && !idFormControl.hasError('required')">
+            Este campo solo admite digitos numericos
+            </mat-error>
+            <mat-error *ngIf="idFormControl.hasError('required')">
+            Este campo es necesario
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>Nombres</mat-label>
+            <input type="text" matInput [formControl]="nombresFormControl">
+            <mat-error *ngIf="nombresFormControl.hasError('pattern') && !nombresFormControl.hasError('maxlength') && !nombresFormControl.hasError('required')">
+            Este campo solo admite caracteres alfabeticos o espacios simples
+            </mat-error>
+            <mat-error *ngIf="nombresFormControl.hasError('maxlength') && !nombresFormControl.hasError('required')">
+            Este campo solo admite maximo 25 caracteres
+            </mat-error>
+            <mat-error *ngIf="nombresFormControl.hasError('required')">
+            Este campo es necesario
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>Apellidos</mat-label>
+            <input type="text" matInput [formControl]="apellidosFormControl">
+            <mat-error *ngIf="apellidosFormControl.hasError('pattern') && !apellidosFormControl.hasError('maxlength') && !apellidosFormControl.hasError('required')">
+            Este campo solo admite caracteres alfabeticos o espacios simples
+            </mat-error>
+            <mat-error *ngIf="apellidosFormControl.hasError('maxlength') && !apellidosFormControl.hasError('required')">
+            Este campo solo admite maximo 25 caracteres
+            </mat-error>
+            <mat-error *ngIf="apellidosFormControl.hasError('required')">
+            Este campo es necesario
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" [formControl]="fechaNFormControl" value="2/22/1999">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="fechaNFormControl.invalid">
+            Fecha invalida asegurece de ingresar una fecha mayor a los 18 años y menor a los 120
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>Lugar de nacimiento</mat-label>
+            <mat-select [formControl]="lugarNFormControl" [(ngModel)]="selectedValueLugarN" name="Lugar de nacimiento" >
+            <mat-option *ngFor="let pais of paises" [value]="pais.name">
+                {{pais.name}}
+            </mat-option>
+            </mat-select>
+            <mat-error *ngIf="generoFormControl.hasError('required')">
+            Este campo es necesario
+            </mat-error>
+        </mat-form-field>
+        </form>
+
+        <form class="register__container--form1" [formGroup]="form">
+        <mat-form-field class="input">
+            <mat-label>Direccion</mat-label>
+            <input type="text" matInput [formControl]="direccionFormControl">
+            <mat-error *ngIf="direccionFormControl.hasError('maxlength') && !direccionFormControl.hasError('required')">
+            Este campo solo admite maximo 100 caracteres
+            </mat-error>
+            <mat-error *ngIf="direccionFormControl.hasError('required')">
+            Este campo es necesario 
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>Genero</mat-label>
+            <mat-select [formControl]="generoFormControl" [(ngModel)]="selectedValueGenero" name="genero">
+            <mat-option *ngFor="let genero of generos" [value]="genero.value">
+                {{genero.viewValue}}
+            </mat-option>
+            </mat-select>
+            <mat-error *ngIf="generoFormControl.hasError('required')">
+            Este campo es necesario
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>Preferencias</mat-label>
+            <mat-select [formControl]="preferenciasFormControl" multiple >
+            <mat-select-trigger>
+                {{preferenciasFormControl.value ? preferenciasFormControl.value[0] : ''}}
+                <span *ngIf="preferenciasFormControl.value?.length > 1" class="example-additional-selection">
+                (+{{preferenciasFormControl.value.length - 1}} {{preferenciasFormControl.value?.length === 2 ? 'otro' : 'otros'}})
+                </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let preferencia of preferencias" [value]="preferencia">{{preferencia}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="preferenciasFormControl.hasError('required')">
+            Este campo es necesario
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>Usuario</mat-label>
+            <input type="text" matInput [formControl]="usuarioFormControl" >
+            <mat-error *ngIf="usuarioFormControl.hasError('pattern') && !usuarioFormControl.hasError('maxlength') && !usuarioFormControl.hasError('required')">
+            Este campo no admite espacios en blanco
+            </mat-error>
+            <mat-error *ngIf="usuarioFormControl.hasError('maxlength') && !usuarioFormControl.hasError('required')">
+            Este campo solo admite maximo 15 caracteres
+            </mat-error>
+            <mat-error *ngIf="usuarioFormControl.hasError('required')">
+            Este campo es necesario
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>Correo Electronico</mat-label>
+            <input type="email" matInput [formControl]="correoFormControl" readonly>
+            <mat-error *ngIf="correoFormControl.hasError('email') && !correoFormControl.hasError('required')">
+            Por favor ingrese una direccion de correo correcta
+            </mat-error>
+            <mat-error *ngIf="correoFormControl.hasError('required')">
+            Este campo es necesario
+            </mat-error>
+        </mat-form-field>
+        
+        </form>
+    </section>
+    <button (click)="actualizarUsuario()" class="button" mat-button>
+        <mat-icon>save</mat-icon>
+        <span>Guardar Cambios</span>
+    </button>
+  </section>

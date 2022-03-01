@@ -1,0 +1,41 @@
+<app-header-root></app-header-root>
+
+<mat-drawer-container class="container">
+    <mat-drawer class="container--drawer" mode="side" opened>
+        <mat-toolbar><mat-icon>account_box</mat-icon>Mi Cuenta</mat-toolbar>
+        <mat-nav-list>
+            <hr>
+            <a mat-list-item (click)="option = 1">
+                <mat-icon>description</mat-icon>
+                <span>Gestionar Admins</span>
+            </a>
+            <mat-toolbar><mat-icon>security</mat-icon>Seguridad</mat-toolbar>
+            <hr>
+            <a mat-list-item (click)="cambiarContrasena()">
+                <mat-icon>pin</mat-icon>
+                <span>Cambiar contraseña</span>
+            </a>
+        </mat-nav-list>
+    </mat-drawer>
+
+    <mat-drawer-content class="content">
+        <div *ngIf="option === 0" class="register__phrase">
+            <div class="register__phrase--icono">
+              <img  src="./../../../../assets/Icono.png" alt="tu libro">
+              <p>¡Disfruta de todos tus libros favoritos a un solo click!</p>
+            </div>
+        </div>
+        <div class="table" *ngIf="option === 1">
+            <h2>Administradores</h2>
+            <div>
+                <button (click)="option = 2" class="button" mat-button>
+                    <mat-icon>add</mat-icon>
+                    <span>Agregar Admin</span>
+                </button>
+            </div>
+            <app-admins></app-admins>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+
+<app-footer></app-footer>

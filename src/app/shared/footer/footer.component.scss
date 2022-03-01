@@ -1,0 +1,17 @@
+footer {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 50px;
+  background-color: #10205c;
+}
+footer a {
+  padding: 0px 10px 0 10px;
+  text-decoration: none;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+}
+footer a:hover {
+  text-decoration: underline;
+}

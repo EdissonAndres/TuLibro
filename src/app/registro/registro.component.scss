@@ -1,0 +1,92 @@
+.register {
+  background: linear-gradient(#080F28, #10205c);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-direction: column;
+  min-height: calc(100vh - 70px);
+}
+.register h2{
+  padding: 50px 0px 0px 40px;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 30px;
+  color: white;
+}
+.register section {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.register__phrase{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  color: white;
+  font-size: 28px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  line-height : 30px;
+  padding-right: 8%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.register__phrase--icono{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.register__phrase--icono img{
+  width: 50%;
+}
+.register__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgba($color: #ffffff, $alpha: .04);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 20px 0px 0px 0px;
+  margin: 0px 160px 30px 100px;
+  /*min-height: 100%;*/
+  width: 50%;
+}
+.register__container--form {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10%;
+}
+.register__container--form1 {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+.mat_error {
+  display: flex;
+  flex-direction: row;
+}
+.input {
+  font-size: 14px;
+  margin-bottom: 30px;
+  padding: 0px 5px 0px 0px;
+  outline: none;
+  height: 50px;
+}
+.button{
+  background-color: #007AFF;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: bold;
+  width: 45%;
+  height: 10%;
+  margin: 50px 0px 10px 0px;
+  outline: none;
+}
+.button:hover{
+  font-size: 18px;
+}

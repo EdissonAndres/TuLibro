@@ -1,0 +1,104 @@
+.login {
+    background: linear-gradient(#080F28, #10205c);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    min-height: calc(100vh - 70px);
+  }
+  .login__phrase{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height : 30px;
+    width: 30%;
+    padding: 0% 8% 0% 8%;
+  }
+  .login__phrase img{
+    width: 50%;
+  }
+  .login__container {
+    background-color: transparent;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 40px;
+    color: white;
+    padding: 20px 70px 20px;
+    margin-right: 8%;
+    min-height: 100%;
+    width: 355px;
+  }
+  .login__container h2{
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-family: 'Muli', sans-serif;
+  }
+  .login__container--form {
+    display: flex;
+    flex-direction: column;
+  }
+  .input {
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding: 0px 5px 0px 0px;
+    outline: none;
+    height: 50px;
+  }
+  ::placeholder{
+    color: white;
+  }
+  .button{
+    background-color: #007AFF;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Muli', sans-serif;
+    height: 50px;
+    margin: 10px 0px 10px 0px;
+    outline: none;
+  }
+  .button:hover{
+    font-size: 19px;
+  }
+  .login__container--forget a {
+    display: flex;
+    color: rgb(173, 173, 173);
+    font-size: 15px;
+    font-family: 'Muli', sans-serif;
+    font-style: italic;
+    text-decoration: none;
+    justify-content: flex-end;
+    padding-right: 10px;
+  }
+  .login__container--forget a:hover {
+    text-decoration: underline;
+  }
+  .login__container--register {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 15px;
+    font-family: 'Muli', sans-serif;  
+    font-style: italic;
+    padding-top: 50px;
+  }
+  .login__container--register a{
+    color: rgb(173, 173, 173);
+    padding-left: 10px;
+    font-size: 15px;
+    font-family: 'Muli', sans-serif;
+    font-style: italic;
+    text-decoration: none;
+  }
+  .login__container--register a:hover{
+    text-decoration: underline;
+  }

@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<section class="login">
+  <div class="login__phrase">
+    <img  src="./../../assets/Icono.png" alt="tu libro">
+    <p>¡Disfruta de todos tus libros favoritos a un solo click!</p>
+  </div>
+  <section class="login__container">
+    <h2>Iniciar sesión</h2>
+    <form [formGroup]="form" class="login__container--form">
+      <mat-form-field class="input">
+        <mat-label>Correo Electronico</mat-label>
+        <input type="email" matInput [formControl]="correoFormControl" placeholder="example@correo.com">
+        <mat-error *ngIf="correoFormControl.hasError('email') && !correoFormControl.hasError('required')">
+          Por favor ingrese una direccion de correo correcta
+        </mat-error>
+        <mat-error *ngIf="correoFormControl.hasError('required')">
+          Este campo es <strong>necesario</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="input">
+        <mat-label>Contraseña</mat-label>
+        <input type="password" matInput [formControl]="contrasenaFormControl">
+        <mat-error *ngIf="contrasenaFormControl.hasError('required')">
+          Este campo es <strong>necesario</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <button [disabled]="form.invalid" (click)="login()" class="button">Iniciar sesión</button>
+      <div class="login__container--forget">
+        <a routerLink="/recuperar">Olvidé mi contraseña</a>
+      </div>
+    </form>
+    <p class="login__container--register">¿No tienes una cuenta todavia?<a routerLink="/registro">  Regístrate</a></p>
+  </section>
+</section>
+
+<app-footer></app-footer>
